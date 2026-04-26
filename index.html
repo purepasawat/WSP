@@ -456,37 +456,57 @@
         }
         
         .gantt-chart {
-            display: flex;
-            flex-direction: column;
-            min-width: max-content;
+            display: table;
+            width: max-content;
+            border-collapse: collapse;
         }
         
         .gantt-timeline {
-            display: flex;
+            display: table-row;
             background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 10;
         }
         
         .gantt-task-labels {
+            display: table-cell;
+            width: 200px;
             min-width: 200px;
             background: var(--bg-tertiary);
             border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             padding: 10px;
             font-weight: 600;
             font-size: 12px;
             color: var(--text-primary);
+            vertical-align: middle;
+        }
+        
+        .gantt-pic-labels {
+            display: table-cell;
+            width: 80px;
+            min-width: 80px;
+            background: var(--bg-tertiary);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px;
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text-primary);
+            text-align: center;
+            vertical-align: middle;
         }
         
         .gantt-dates {
+            display: table-cell;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .gantt-dates-inner {
             display: flex;
-            flex: 1;
         }
         
         .gantt-time-slot {
             min-width: 60px;
+            width: 60px;
             padding: 8px 4px;
             text-align: center;
             font-size: 10px;
@@ -509,10 +529,7 @@
         }
         
         .gantt-row {
-            display: flex;
-            border-bottom: 1px solid var(--border-color);
-            min-height: 44px;
-            align-items: center;
+            display: table-row;
         }
         
         .gantt-row:hover {
@@ -520,43 +537,64 @@
         }
         
         .gantt-task-label {
+            display: table-cell;
+            width: 200px;
             min-width: 200px;
             padding: 8px 10px;
             border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             font-weight: 500;
             font-size: 12px;
             color: var(--text-primary);
-            display: flex;
-            flex-direction: column;
+            vertical-align: middle;
+        }
+        
+        .gantt-pic-label {
+            display: table-cell;
+            width: 80px;
+            min-width: 80px;
+            padding: 8px 10px;
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 12px;
+            color: var(--text-primary);
+            text-align: center;
+            vertical-align: middle;
         }
         
         .gantt-task-label-name {
             font-size: 13px;
             color: var(--text-primary);
             font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
         }
         
-        .gantt-task-label-person {
+        .gantt-task-label-info {
             font-size: 10px;
             color: var(--text-secondary);
-            margin-top: 2px;
+            line-height: 1.4;
+            display: block;
         }
         
         .gantt-bars {
-            display: flex;
-            flex: 1;
+            display: table-cell;
             position: relative;
+            border-bottom: 1px solid var(--border-color);
+            vertical-align: middle;
         }
         
         .gantt-bar-container {
             display: flex;
-            width: 100%;
             position: relative;
+            min-height: 50px;
         }
         
         .gantt-time-cell {
             min-width: 60px;
-            height: 44px;
+            width: 60px;
+            height: 50px;
             border-right: 1px solid var(--border-color);
         }
         
@@ -686,7 +724,13 @@
         @media print {
             @page {
                 size: A3 landscape;
-                margin: 15mm;
+                margin: 10mm;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                color-adjust: exact;
             }
             
             body {
@@ -699,9 +743,7 @@
                 box-shadow: none;
                 border-radius: 0;
                 max-width: 100%;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
+                width: 100%;
             }
             
             .header,
@@ -716,32 +758,25 @@
             
             .content {
                 padding: 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                height: 100%;
             }
             
             .gantt-container {
                 border: none;
                 border-radius: 0;
                 margin: 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                height: 100%;
+                page-break-after: avoid;
             }
             
             .pdf-header {
                 display: flex !important;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px 0;
+                padding: 8px 0;
                 border-bottom: 2px solid #8C8C8C;
-                margin-bottom: 15px;
-                font-size: 11px;
+                margin-bottom: 12px;
+                font-size: 10px;
                 color: #000;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 gap: 15px;
             }
             
@@ -763,7 +798,6 @@
             
             .gantt-wrapper {
                 overflow: visible !important;
-                flex: 1;
             }
             
             .gantt-header {
@@ -772,42 +806,123 @@
             
             .gantt-chart {
                 width: 100% !important;
-                min-width: 100% !important;
+                display: table !important;
+                border-collapse: collapse !important;
             }
             
-            .gantt-timeline,
+            .gantt-timeline {
+                display: table-row !important;
+                page-break-inside: avoid;
+                page-break-after: avoid;
+            }
+            
             .gantt-row {
+                display: table-row !important;
                 page-break-inside: avoid;
             }
             
             .gantt-task-labels,
             .gantt-task-label {
+                display: table-cell !important;
                 background: #f5f5f5 !important;
+                width: 180px !important;
                 min-width: 180px !important;
+                max-width: 180px !important;
+                border: 1px solid #ddd !important;
+                padding: 8px !important;
+                vertical-align: middle !important;
+            }
+            
+            .gantt-pic-labels,
+            .gantt-pic-label {
+                display: table-cell !important;
+                background: #f5f5f5 !important;
+                width: 60px !important;
+                min-width: 60px !important;
+                max-width: 60px !important;
+                border: 1px solid #ddd !important;
+                padding: 8px !important;
+                text-align: center !important;
+                vertical-align: middle !important;
+            }
+            
+            .gantt-dates {
+                display: table-cell !important;
+                border: 1px solid #ddd !important;
+                padding: 0 !important;
+            }
+            
+            .gantt-dates-inner {
+                display: flex !important;
             }
             
             .gantt-time-slot {
                 min-width: 50px !important;
+                width: 50px !important;
+                max-width: 50px !important;
                 background: #f5f5f5 !important;
+                border-right: 1px solid #ddd !important;
+                padding: 6px 2px !important;
+                font-size: 8px !important;
+            }
+            
+            .gantt-time-slot .date {
+                font-size: 9px !important;
+            }
+            
+            .gantt-time-slot .time {
+                font-size: 7px !important;
+            }
+            
+            .gantt-bars {
+                display: table-cell !important;
+                border: 1px solid #ddd !important;
+                padding: 0 !important;
+                position: relative;
+            }
+            
+            .gantt-bar-container {
+                display: flex !important;
+                min-height: 45px !important;
+                position: relative;
+            }
+            
+            .gantt-time-cell {
+                min-width: 50px !important;
+                width: 50px !important;
+                max-width: 50px !important;
+                height: 45px !important;
+                border-right: 1px solid #e8e8e8 !important;
             }
             
             .gantt-bar {
-                print-color-adjust: exact;
-                -webkit-print-color-adjust: exact;
-                color-adjust: exact;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                color-adjust: exact !important;
+                font-size: 9px !important;
+                height: 24px !important;
+            }
+            
+            .gantt-task-label-name {
+                font-size: 11px !important;
+            }
+            
+            .gantt-task-label-info {
+                font-size: 8px !important;
             }
             
             .pdf-footer {
                 display: flex !important;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px 0;
+                padding: 8px 0;
                 border-top: 2px solid #8C8C8C;
-                margin-top: 15px;
-                font-size: 11px;
+                margin-top: 12px;
+                font-size: 10px;
                 color: #000;
-                flex-wrap: wrap;
+                flex-wrap: nowrap;
                 gap: 15px;
+                page-break-inside: avoid;
             }
             
             .pdf-footer-item {
@@ -845,6 +960,10 @@
             .gantt-task-labels,
             .gantt-task-label {
                 min-width: 150px;
+            }
+            .gantt-pic-labels,
+            .gantt-pic-label {
+                min-width: 60px;
             }
             .gantt-header {
                 flex-direction: column;
@@ -1154,7 +1273,6 @@
             });
         }
         
-        // Auto-update status based on progress
         function updateStatusFromProgress() {
             const progress = parseInt(document.getElementById('progress').value);
             const statusSelect = document.getElementById('status');
@@ -1178,6 +1296,15 @@
             const day = String(date.getDate()).padStart(2, '0');
             const hours = String(hour).padStart(2, '0');
             return `${year}-${month}-${day}T${hours}:00`;
+        }
+        
+        function formatBriefTime(dateString) {
+            const date = new Date(dateString);
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+            return `${month}/${day} ${hours}:${minutes}`;
         }
         
         function updateEndDate() {
@@ -1455,9 +1582,12 @@
             }
             
             let html = '<div class="gantt-chart">';
+            
+            // Timeline header
             html += '<div class="gantt-timeline">';
             html += '<div class="gantt-task-labels">Task Name</div>';
-            html += '<div class="gantt-dates">';
+            html += '<div class="gantt-pic-labels">PIC</div>';
+            html += '<div class="gantt-dates"><div class="gantt-dates-inner">';
             timeSlots.forEach(time => {
                 const dateStr = time.toLocaleDateString('en-US', {
                     month: 'short',
@@ -1473,8 +1603,9 @@
                     <span class="time">${timeStr}</span>
                 </div>`;
             });
-            html += '</div></div>';
+            html += '</div></div></div>';
             
+            // Task rows
             tasks.forEach(task => {
                 const taskStart = new Date(task.startDate);
                 const taskEnd = new Date(task.endDate);
@@ -1485,18 +1616,25 @@
                 const barWidth = taskDurationHours * pixelsPerHour;
                 
                 html += '<div class="gantt-row">';
+                
+                // Task name column
                 html += `<div class="gantt-task-label">
                     <span class="gantt-task-label-name">${task.name}</span>
-                    <span class="gantt-task-label-person">PIC: ${task.pic} | ${task.duration} ${task.durationUnit}</span>
+                    <span class="gantt-task-label-info">${task.duration} ${task.durationUnit} | ${formatBriefTime(task.startDate)} - ${formatBriefTime(task.endDate)}</span>
                 </div>`;
-                html += '<div class="gantt-bars">';
-                html += '<div class="gantt-bar-container">';
+                
+                // PIC column
+                html += `<div class="gantt-pic-label">${task.pic}</div>`;
+                
+                // Timeline bars
+                html += '<div class="gantt-bars"><div class="gantt-bar-container">';
                 timeSlots.forEach(() => {
                     html += '<div class="gantt-time-cell"></div>';
                 });
+                
                 const barLabel = barWidth > 80 ? task.name : (barWidth > 40 ? task.name.substring(0, 10) + '...' : '');
                 const textColor = getTextColor(task.color);
-                html += `<div class="gantt-bar" style="left: ${startOffset}px; width: ${Math.max(barWidth, 5)}px; background: ${task.color}; color: ${textColor};" title="${task.name}&#10;Start: ${formatDateTimeDisplay(task.startDate)}&#10;End: ${formatDateTimeDisplay(task.endDate)}&#10;Duration: ${task.duration} ${task.durationUnit}">
+                html += `<div class="gantt-bar" style="left: ${startOffset}px; width: ${Math.max(barWidth, 5)}px; background: ${task.color}; color: ${textColor};" title="${task.name}&#10;PIC: ${task.pic}&#10;Start: ${formatDateTimeDisplay(task.startDate)}&#10;End: ${formatDateTimeDisplay(task.endDate)}&#10;Duration: ${task.duration} ${task.durationUnit}">
                     <div class="progress-indicator" style="width: ${task.progress}%;"></div>
                     ${barLabel}
                 </div>`;
