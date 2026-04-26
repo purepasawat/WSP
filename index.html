@@ -17,14 +17,15 @@
             --primary-light: #A8A8A8;
             --secondary-color: #5A5A5A;
             --bg-primary: #ffffff;
-            --bg-secondary: #f5f5f5;
-            --bg-tertiary: #e8e8e8;
-            --text-primary: #2a2a2a;
-            --text-secondary: #666666;
-            --border-color: #d0d0d0;
-            --shadow-color: rgba(140, 140, 140, 0.15);
+            --bg-secondary: #f8f9fa;
+            --bg-tertiary: #e9ecef;
+            --text-primary: #212529;
+            --text-secondary: #6c757d;
+            --border-color: #dee2e6;
+            --shadow-color: rgba(0, 0, 0, 0.08);
             --card-bg: #ffffff;
-            --hover-bg: #f9f9f9;
+            --hover-bg: #f8f9fa;
+            --input-bg: #ffffff;
         }
         
         [data-theme="dark"] {
@@ -32,158 +33,197 @@
             --primary-dark: #8C8C8C;
             --primary-light: #D8D8D8;
             --secondary-color: #A8A8A8;
-            --bg-primary: #1a1a1a;
-            --bg-secondary: #2a2a2a;
-            --bg-tertiary: #3a3a3a;
-            --text-primary: #e8e8e8;
-            --text-secondary: #b0b0b0;
-            --border-color: #4a4a4a;
-            --shadow-color: rgba(0, 0, 0, 0.4);
-            --card-bg: #2a2a2a;
-            --hover-bg: #353535;
+            --bg-primary: #1a1d20;
+            --bg-secondary: #212529;
+            --bg-tertiary: #2c3034;
+            --text-primary: #e9ecef;
+            --text-secondary: #adb5bd;
+            --border-color: #495057;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --card-bg: #212529;
+            --hover-bg: #2c3034;
+            --input-bg: #2c3034;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
             background: var(--bg-secondary);
-            padding: 20px;
+            padding: 16px;
             color: var(--text-primary);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            line-height: 1.5;
         }
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 8px 32px var(--shadow-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
             overflow: hidden;
         }
+        
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
             color: white;
-            padding: 25px 30px;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        
         .header h1 {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: 600;
         }
+        
         .header-buttons {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
+        
         .theme-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 6px;
+            padding: 6px 12px;
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+            gap: 6px;
+            transition: all 0.2s ease;
             color: white;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
         }
+        
         .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.25);
         }
+        
         .btn {
-            padding: 10px 20px;
+            padding: 6px 14px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
+        
         .btn-primary {
             background: white;
             color: var(--primary-color);
         }
+        
         .btn-primary:hover {
-            background: var(--bg-tertiary);
-            transform: translateY(-2px);
+            background: #f8f9fa;
         }
+        
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
-            border: 1px solid white;
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
+        
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
         }
+        
         .btn-success {
-            background: var(--primary-color);
+            background: #28a745;
             color: white;
         }
+        
         .btn-success:hover {
-            background: var(--primary-dark);
+            background: #218838;
         }
+        
         .btn-info {
-            background: #6B6B6B;
+            background: #6C00D1;
             color: white;
         }
+        
         .btn-info:hover {
-            background: #5A5A5A;
+            background: #5a00af;
         }
+        
         .btn-danger {
             background: #D12500;
             color: white;
         }
+        
         .btn-danger:hover {
             background: #A01D00;
         }
+        
         .content {
-            padding: 30px;
+            padding: 20px;
         }
+        
         .task-form {
             background: var(--bg-tertiary);
-            padding: 25px;
+            padding: 20px;
             border-radius: 8px;
-            border: 2px solid var(--border-color);
-            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
         }
+        
         .task-form h2 {
             color: var(--text-primary);
-            margin-bottom: 20px;
-            font-size: 20px;
+            margin-bottom: 16px;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
-        .form-row {
+        
+        .form-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 15px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 16px;
         }
+        
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 6px;
         }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
         .form-group label {
             font-size: 12px;
             font-weight: 600;
             color: var(--text-primary);
         }
+        
+        .form-group label .required {
+            color: #D12500;
+            margin-left: 2px;
+        }
+        
         .form-group input,
         .form-group select,
         .form-group textarea {
             padding: 8px 12px;
-            border: 2px solid var(--border-color);
+            border: 1px solid var(--border-color);
             border-radius: 6px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            background: var(--card-bg);
+            font-size: 13px;
+            transition: all 0.2s ease;
+            background: var(--input-bg);
             color: var(--text-primary);
         }
+        
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
@@ -191,223 +231,338 @@
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(140, 140, 140, 0.1);
         }
+        
         .form-group textarea {
             resize: vertical;
-            min-height: 60px;
+            min-height: 70px;
+            font-family: inherit;
         }
-        .duration-input-group {
-            display: flex;
+        
+        .duration-group {
+            display: grid;
+            grid-template-columns: 1fr auto;
             gap: 8px;
-            align-items: flex-end;
         }
-        .duration-input-group input {
-            flex: 1;
+        
+        .duration-group select {
+            min-width: 90px;
         }
-        .duration-input-group select {
-            flex: 0.6;
-        }
+        
         .calculated-end-time {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-secondary);
-            margin-top: 5px;
-            padding: 5px 10px;
-            background: var(--bg-tertiary);
+            margin-top: 4px;
+            padding: 4px 8px;
+            background: var(--bg-secondary);
             border-radius: 4px;
             display: inline-block;
         }
-        .task-list {
-            margin-bottom: 30px;
-        }
-        .task-item {
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-left: 5px solid var(--primary-color);
-            padding: 15px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .task-item:hover {
-            box-shadow: 0 4px 12px var(--shadow-color);
-            transform: translateX(5px);
-        }
-        .task-info {
-            flex: 1;
-        }
-        .task-name {
-            font-weight: 600;
-            font-size: 16px;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-        .task-details {
-            font-size: 13px;
-            color: var(--text-secondary);
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .task-description {
-            font-size: 13px;
-            color: var(--text-secondary);
-            margin-top: 8px;
-            font-style: italic;
-        }
-        .task-actions {
-            display: flex;
+        
+        .hour-selector {
+            display: grid;
+            grid-template-columns: 1fr auto;
             gap: 8px;
         }
-        .task-actions .btn {
-            padding: 6px 12px;
-            font-size: 12px;
+        
+        .hour-selector select {
+            min-width: 80px;
         }
+        
+        .color-picker {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.selected {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--primary-color);
+        }
+        
+        .color-option[data-color="#000000"] {
+            border: 2px solid var(--border-color);
+        }
+        
         .button-group {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-        .gantt-container {
-            margin-top: 30px;
-            border: 2px solid var(--border-color);
+        
+        .project-info {
+            background: var(--bg-tertiary);
+            padding: 16px;
             border-radius: 8px;
-            background: var(--card-bg);
-            overflow: hidden;
+            margin-bottom: 16px;
+            border: 1px solid var(--border-color);
         }
-        .gantt-header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: white;
-            padding: 15px;
+        
+        .project-info h3 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            font-size: 14px;
             font-weight: 600;
-            font-size: 18px;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .stat-card {
+            background: var(--card-bg);
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+        
+        .task-list {
+            margin-bottom: 20px;
+        }
+        
+        .task-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        
+        .task-item:hover {
+            box-shadow: 0 2px 8px var(--shadow-color);
+            transform: translateX(2px);
+        }
+        
+        .task-info {
+            flex: 1;
+        }
+        
+        .task-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+        
+        .task-details {
+            font-size: 12px;
+            color: var(--text-secondary);
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .task-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 6px;
+            font-style: italic;
+        }
+        
+        .task-actions {
+            display: flex;
+            gap: 6px;
+        }
+        
+        .task-actions .btn {
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+        
+        .gantt-container {
+            margin-top: 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--card-bg);
+            overflow: hidden;
+        }
+        
+        .gantt-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 12px 16px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
         .gantt-period-selector {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 5px;
+            padding: 4px;
             border-radius: 6px;
         }
+        
         .period-btn {
-            padding: 6px 12px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 4px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
             background: transparent;
             color: white;
             border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: all 0.2s ease;
         }
+        
         .period-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
         }
+        
         .period-btn.active {
             background: white;
             color: var(--primary-color);
-            border-color: white;
         }
+        
         .gantt-wrapper {
             overflow-x: auto;
             overflow-y: hidden;
         }
+        
         .gantt-chart {
             display: flex;
             flex-direction: column;
             min-width: max-content;
         }
+        
         .gantt-timeline {
             display: flex;
             background: var(--bg-tertiary);
-            border-bottom: 2px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
             position: sticky;
             top: 0;
             z-index: 10;
         }
+        
         .gantt-task-labels {
-            min-width: 250px;
+            min-width: 200px;
             background: var(--bg-tertiary);
-            border-right: 2px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
             padding: 10px;
             font-weight: 600;
+            font-size: 12px;
             color: var(--text-primary);
         }
+        
         .gantt-dates {
             display: flex;
             flex: 1;
         }
+        
         .gantt-time-slot {
             min-width: 60px;
-            padding: 8px 5px;
+            padding: 8px 4px;
             text-align: center;
             font-size: 10px;
             border-right: 1px solid var(--border-color);
             color: var(--text-primary);
             display: flex;
             flex-direction: column;
-            line-height: 1.4;
+            line-height: 1.3;
         }
+        
         .gantt-time-slot .date {
             font-weight: 700;
             font-size: 11px;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
+        
         .gantt-time-slot .time {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--text-secondary);
         }
+        
         .gantt-row {
             display: flex;
             border-bottom: 1px solid var(--border-color);
-            min-height: 50px;
+            min-height: 44px;
             align-items: center;
         }
+        
         .gantt-row:hover {
             background: var(--hover-bg);
         }
+        
         .gantt-task-label {
-            min-width: 250px;
-            padding: 10px;
-            border-right: 2px solid var(--border-color);
+            min-width: 200px;
+            padding: 8px 10px;
+            border-right: 1px solid var(--border-color);
             font-weight: 500;
+            font-size: 12px;
             color: var(--text-primary);
             display: flex;
             flex-direction: column;
         }
+        
         .gantt-task-label-name {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-primary);
             font-weight: 600;
         }
+        
         .gantt-task-label-person {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--text-secondary);
-            margin-top: 3px;
+            margin-top: 2px;
         }
+        
         .gantt-bars {
             display: flex;
             flex: 1;
             position: relative;
         }
+        
         .gantt-bar-container {
             display: flex;
             width: 100%;
             position: relative;
         }
+        
         .gantt-time-cell {
             min-width: 60px;
-            height: 50px;
+            height: 44px;
             border-right: 1px solid var(--border-color);
         }
+        
         .gantt-bar {
             position: absolute;
-            height: 30px;
+            height: 28px;
             border-radius: 4px;
             top: 50%;
             transform: translateY(-50%);
@@ -417,159 +572,114 @@
             color: white;
             font-size: 11px;
             font-weight: 600;
-            box-shadow: 0 2px 6px var(--shadow-color);
+            box-shadow: 0 1px 4px var(--shadow-color);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             overflow: hidden;
             white-space: nowrap;
         }
+        
         .gantt-bar:hover {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 4px 12px var(--shadow-color);
+            transform: translateY(-50%) scale(1.03);
+            box-shadow: 0 2px 8px var(--shadow-color);
             z-index: 5;
-            filter: brightness(1.1);
         }
+        
         .progress-indicator {
             position: absolute;
             left: 0;
             top: 0;
             height: 100%;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 4px 0 0 4px;
         }
+        
         .status-badge {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 2px 8px;
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
         }
+        
         .status-not-started {
-            background: #ffebee;
-            color: #c62828;
+            background: #fff3cd;
+            color: #856404;
         }
+        
         .status-in-progress {
-            background: #fff3e0;
-            color: #ef6c00;
+            background: #cfe2ff;
+            color: #084298;
         }
+        
         .status-completed {
-            background: #e8f5e9;
-            color: #2e7d32;
+            background: #d1e7dd;
+            color: #0a3622;
         }
+        
         .work-type-badge {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 2px 8px;
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
         }
+        
         .work-type-normal {
-            background: #e3f2fd;
-            color: #1565c0;
+            background: #e7f3ff;
+            color: #004085;
         }
+        
         .work-type-work-at-high {
-            background: #fff3e0;
-            color: #ef6c00;
+            background: #fff3cd;
+            color: #856404;
         }
+        
         .work-type-confine {
-            background: #fce4ec;
-            color: #c2185b;
+            background: #f8d7da;
+            color: #721c24;
         }
+        
         .work-type-class-i {
-            background: #f3e5f5;
-            color: #7b1fa2;
+            background: #e2d9f3;
+            color: #5a2a82;
         }
+        
         .work-type-class-ii {
-            background: #ede7f6;
-            color: #5e35b1;
+            background: #d9d2e9;
+            color: #4a1d7e;
         }
+        
         .pic-badge {
             display: inline-block;
-            padding: 3px 8px;
+            padding: 2px 8px;
             border-radius: 12px;
             font-size: 11px;
             font-weight: 600;
             background: var(--bg-tertiary);
             color: var(--text-primary);
         }
+        
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             color: var(--text-secondary);
         }
+        
         .empty-state svg {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 20px;
-            opacity: 0.5;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 16px;
+            opacity: 0.4;
         }
-        .color-picker {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
+        
+        .empty-state h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
         }
-        .color-option {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .color-option:hover {
-            transform: scale(1.15);
-        }
-        .color-option.selected {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px var(--card-bg), 0 0 0 4px var(--primary-color);
-        }
-        .color-option[data-color="#000000"] {
-            border: 2px solid var(--border-color);
-        }
-        .project-info {
-            background: var(--bg-tertiary);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border: 2px solid var(--border-color);
-        }
-        .project-info h3 {
-            color: var(--text-primary);
-            margin-bottom: 10px;
-        }
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .stat-card {
-            background: var(--card-bg);
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid var(--primary-color);
-        }
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        .stat-label {
-            font-size: 12px;
-            color: var(--text-secondary);
-            margin-top: 5px;
-        }
-        .hour-selector {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-        .hour-selector input[type="date"] {
-            flex: 1;
-        }
-        .hour-selector select {
-            flex: 0.4;
+        
+        .empty-state p {
+            font-size: 13px;
         }
         
         /* PDF Print Styles */
@@ -622,7 +732,6 @@
                 height: 100%;
             }
             
-            /* PDF Header */
             .pdf-header {
                 display: flex !important;
                 justify-content: space-between;
@@ -652,7 +761,6 @@
                 color: #000;
             }
             
-            /* PDF Body - Gantt Chart */
             .gantt-wrapper {
                 overflow: visible !important;
                 flex: 1;
@@ -689,7 +797,6 @@
                 color-adjust: exact;
             }
             
-            /* PDF Footer */
             .pdf-footer {
                 display: flex !important;
                 justify-content: space-between;
@@ -720,26 +827,28 @@
             }
         }
         
-        /* Hide PDF elements on screen */
         .pdf-header,
         .pdf-footer {
             display: none;
         }
         
+        @media (max-width: 1024px) {
+            .form-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
-            .form-row {
+            .form-grid {
                 grid-template-columns: 1fr;
             }
             .gantt-task-labels,
             .gantt-task-label {
                 min-width: 150px;
             }
-            .button-group {
-                flex-direction: column;
-            }
             .gantt-header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
                 align-items: flex-start;
             }
             .gantt-period-selector {
@@ -759,18 +868,17 @@
                     <span id="themeText">Dark</span>
                 </button>
                 <button class="btn btn-secondary" onclick="saveProject()">
-                    💾 Save Project
+                    💾 Save
                 </button>
                 <button class="btn btn-secondary" onclick="loadProject()">
-                    📂 Load Project
+                    📂 Load
                 </button>
                 <button class="btn btn-primary" onclick="printToPDF()">
-                    📄 Export to PDF
+                    📄 PDF
                 </button>
             </div>
         </div>
         <div class="content">
-            <!-- PDF Header (only visible when printing) -->
             <div class="pdf-header">
                 <div class="pdf-header-item">
                     <span class="pdf-header-label">Project:</span>
@@ -792,7 +900,7 @@
             
             <div class="project-info">
                 <h3>Project Information</h3>
-                <div class="form-row">
+                <div class="form-grid">
                     <div class="form-group">
                         <label>Project Name</label>
                         <input type="text" id="projectName" placeholder="Enter project name" value="Manufacturing Line Upgrade">
@@ -802,11 +910,11 @@
                         <input type="text" id="projectManager" placeholder="Enter manager name" value="John Smith">
                     </div>
                     <div class="form-group">
-                        <label>Project Start Date</label>
+                        <label>Start Date</label>
                         <input type="date" id="projectStartDate">
                     </div>
                     <div class="form-group">
-                        <label>Project End Date</label>
+                        <label>End Date</label>
                         <input type="date" id="projectEndDate">
                     </div>
                 </div>
@@ -829,15 +937,16 @@
                     </div>
                 </div>
             </div>
+            
             <div class="task-form">
                 <h2>➕ Add New Task</h2>
-                <div class="form-row">
+                <div class="form-grid">
                     <div class="form-group">
-                        <label>Task Name *</label>
+                        <label>Task Name <span class="required">*</span></label>
                         <input type="text" id="taskName" placeholder="Enter task name" required>
                     </div>
                     <div class="form-group">
-                        <label>PIC (Person In Charge) *</label>
+                        <label>PIC (Person In Charge) <span class="required">*</span></label>
                         <select id="pic" required>
                             <option value="">Select PIC</option>
                             <option value="OPE">OPE</option>
@@ -849,7 +958,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Start Date & Hour *</label>
+                        <label>Start Date & Hour <span class="required">*</span></label>
                         <div class="hour-selector">
                             <input type="date" id="startDate" required oninput="updateEndDate()">
                             <select id="startHour" required onchange="updateEndDate()">
@@ -882,8 +991,8 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Duration *</label>
-                        <div class="duration-input-group">
+                        <label>Duration <span class="required">*</span></label>
+                        <div class="duration-group">
                             <input type="number" id="duration" min="0.5" step="0.5" value="8" required oninput="updateEndDate()">
                             <select id="durationUnit" onchange="updateEndDate()">
                                 <option value="hours">Hours</option>
@@ -892,8 +1001,6 @@
                         </div>
                         <div class="calculated-end-time" id="calculatedEndTime">End: ---</div>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group">
                         <label>Status</label>
                         <select id="status">
@@ -904,7 +1011,7 @@
                     </div>
                     <div class="form-group">
                         <label>Progress (%)</label>
-                        <input type="number" id="progress" min="0" max="100" value="0">
+                        <input type="number" id="progress" min="0" max="100" value="0" oninput="updateStatusFromProgress()">
                     </div>
                     <div class="form-group">
                         <label>Work Type</label>
@@ -921,16 +1028,14 @@
                         <div class="color-picker">
                             <div class="color-option" style="background: #000000;" data-color="#000000" title="Black"></div>
                             <div class="color-option" style="background: #D12500;" data-color="#D12500" title="Red"></div>
-                            <div class="color-option selected" style="background: #D17D00;" data-color="#D17D00" title="Orange/Gold"></div>
+                            <div class="color-option selected" style="background: #D17D00;" data-color="#D17D00" title="Orange"></div>
                             <div class="color-option" style="background: #96D100;" data-color="#96D100" title="Green"></div>
                             <div class="color-option" style="background: #00D188;" data-color="#00D188" title="Teal"></div>
                             <div class="color-option" style="background: #005ED1;" data-color="#005ED1" title="Blue"></div>
                             <div class="color-option" style="background: #6C00D1;" data-color="#6C00D1" title="Purple"></div>
                         </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group" style="grid-column: 1 / -1;">
+                    <div class="form-group full-width">
                         <label>Description</label>
                         <textarea id="description" placeholder="Enter task description (optional)"></textarea>
                     </div>
@@ -944,7 +1049,9 @@
                     </button>
                 </div>
             </div>
+            
             <div class="task-list" id="taskList"></div>
+            
             <div class="gantt-container">
                 <div class="gantt-header">
                     <span>📊 Gantt Chart View</span>
@@ -961,7 +1068,6 @@
                 </div>
             </div>
             
-            <!-- PDF Footer (only visible when printing) -->
             <div class="pdf-footer">
                 <div class="pdf-footer-item">
                     <span class="pdf-footer-label">Total Tasks:</span>
@@ -984,12 +1090,11 @@
     </div>
     <script>
         let tasks = [];
-        let selectedColor = '#D17D00'; // Default to orange/gold
+        let selectedColor = '#D17D00';
         let editingTaskId = null;
         let ganttPeriodHours = 24;
         let currentTheme = 'light';
         
-        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             loadTheme();
             loadFromLocalStorage();
@@ -1028,8 +1133,6 @@
         
         function setupDateDefaults() {
             const today = new Date();
-            const tomorrow = new Date(today);
-            tomorrow.setDate(tomorrow.getDate() + 7);
             if (!document.getElementById('projectStartDate').value) {
                 document.getElementById('projectStartDate').value = formatDate(today);
             }
@@ -1049,6 +1152,20 @@
                     selectedColor = this.getAttribute('data-color');
                 });
             });
+        }
+        
+        // Auto-update status based on progress
+        function updateStatusFromProgress() {
+            const progress = parseInt(document.getElementById('progress').value);
+            const statusSelect = document.getElementById('status');
+            
+            if (progress === 0) {
+                statusSelect.value = 'not-started';
+            } else if (progress === 100) {
+                statusSelect.value = 'completed';
+            } else if (progress > 0 && progress < 100) {
+                statusSelect.value = 'in-progress';
+            }
         }
         
         function formatDate(date) {
@@ -1390,16 +1507,11 @@
         }
         
         function getTextColor(bgColor) {
-            // Convert hex to RGB
             const hex = bgColor.replace('#', '');
             const r = parseInt(hex.substr(0, 2), 16);
             const g = parseInt(hex.substr(2, 2), 16);
             const b = parseInt(hex.substr(4, 2), 16);
-            
-            // Calculate brightness
             const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            
-            // Return white for dark colors, black for light colors
             return brightness < 128 ? '#ffffff' : '#000000';
         }
         
